@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Resultado Cargue Masivo</title>
+  <style>
+    body { font-family: sans-serif; background: #f4f4f4; display: flex; justify-content: center; padding: 40px; }
+    .card { background: white; border-radius: 12px; padding: 30px 40px; max-width: 500px; width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    h2   { text-align: center; color: #1E1BD2; margin-bottom: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    th, td { padding: 12px 16px; text-align: center; border: 1px solid #ddd; }
+    th { background: #1E1BD2; color: white; }
+    .insertados { color: #27ae60; font-weight: bold; }
+    .rechazados { color: #e74c3c; font-weight: bold; }
+    .duplicados { color: #e67e22; font-weight: bold; }
+    .btn { display: inline-block; padding: 10px 20px; border-radius: 8px; text-decoration: none;
+           font-weight: bold; text-align: center; margin: 6px; }
+    .btn-verde  { background: #27ae60; color: white; }
+    .btn-azul   { background: #1E1BD2; color: white; }
+    .btn-gris   { background: #bbb;    color: white; }
+    .acciones   { display: flex; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h2>📊 Resultado del Cargue Masivo</h2>
+
+  <table>
+    <tr><th>Resultado</th><th>Cantidad</th></tr>
+    <tr>
+      <td>✅ Insertados</td>
+      <td class="insertados">{{ stats.get("insertados", 0) }}</td>
+    </tr>
+    <tr>
+      <td>❌ Rechazados</td>
+      <td class="rechazados">{{ stats.get("rechazados", 0) }}</td>
+    </tr>
+    <tr>
+      <td>🔁 Duplicados</td>
+      <td class="duplicados">{{ stats.get("duplicados", 0) }}</td>
+    </tr>
+  </table>
+
+  <div class="acciones">
+    <!-- Descargar Excel de rechazados solo si hay alguno -->
+    {% if rechazados %}
+      <a href="/descargar_rechazados" class="btn btn-verde">
+        ⬇️ Descargar rechazados (.xlsx)
+      </a>
+    {% else %}
+      <span class="btn btn-gris">Sin registros rechazados</span>
+    {% endif %}
+
+    <a href="/dashprincipal" class="btn btn-azul">🔙 Ir al Dashboard</a>
+  </div>
+</div>
+</body>
+</html>

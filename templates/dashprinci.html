@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+
+<body style="font-family: Arial">
+    
+<div style="
+background:#1E1BD2;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;">
+
+    <div>
+        <b>Usuario:</b> {{usuario}}
+    </div>
+
+    <div style="display:flex; gap:10px; align-items:center;">
+
+        <a href="/registro_estudiante" 
+               style="background:green;
+               color:white;
+               padding:8px 15px;
+               text-decoration:none;
+               border-radius:5px">
+               Registrar
+        </a>
+
+        <a href="/cargamasiva" 
+               style="background:green;
+               color:white;
+               padding:8px 15px;
+               text-decoration:none;
+               border-radius:5px">
+               Cargar
+        </a>
+
+        <a href="/logout" 
+               style="background:red;
+               color:white;
+               padding:8px 15px;
+               text-decoration:none;
+               border-radius:5px">
+               Cerrar sesión
+        </a>
+
+    </div>
+
+</div>
+
+<iframe 
+    src="/dashprincipal/"
+    width="100%"
+    height="900px"
+    style="border:none; margin-top:80px;">
+</iframe>
+
+</body>
+</html>
