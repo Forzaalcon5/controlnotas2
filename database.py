@@ -5,10 +5,10 @@ import os
 def conectar():
     conexion = mysql.connector.connect(
         host=os.getenv("MYSQLHOST"),
-        port=int(os.getenv("MYSQLPORT")),
         user = os.getenv("MYSQLUSER"),
         password = os.getenv("MYSQLPASSWORD"),
-        database = os.getenv("MYSQLDATABASE")
+        database = os.getenv("MYSQLDATABASE"),
+        port=int(os.getenv("MYSQLPORT", 3306))
     )
     return conexion
 
