@@ -10,6 +10,8 @@ app.secret_key = "40414732"
 
 creartablero(app)
 
+server = app
+
 @app.after_request
 def add_header(response):
     response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
